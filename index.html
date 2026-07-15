@@ -845,20 +845,7 @@ function closeImage(){
     document.body.style.overflow = "";
 
 }
-	window.addEventListener('load', () => {
-    document.querySelectorAll('.zoom-img').forEach(img => {
-        const desktop = img.dataset.desktop;
-        const mobile = img.dataset.mobile;
-        const src = window.innerWidth <= 768 && mobile
-            ? mobile
-            : desktop || img.dataset.full;
-
-        if (src) {
-            const preload = new Image();
-            preload.src = src;
-        }
-    });
-});
+	
 </script>
 
 
