@@ -1,91 +1,44 @@
 <!doctype html>
-<html lang="zh-Hant">
-
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>履歷作品</title>
-
-<style>
+<title>Untitled Document</title>
+	<style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+		}
+		
+		
+img {
+  display: block;
+  margin: 0;
+}
+		.view_lg{ display:none;}
+@media (min-width:992px){
+	.view_sm{ display:none;}
+	.view_lg{ display:block;}
 }
 
-html,
-body {
-    width: 100%;
-    background: #fff;
-}
 
-picture {
-    display: block;
-    width: 100%;
-}
-
-picture img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-</style>
+	</style>
 </head>
 
 <body>
-
-<!-- 第 1 張：優先載入 -->
-<picture>
-    <source
-        media="(min-width: 992px)"
-        srcset="img/cv_01.webp">
-
-    <img
-        src="img/cv_m01.webp"
-        alt="履歷作品第 1 張"
-        fetchpriority="high"
-        decoding="async">
-</picture>
-
-<!-- 第 2 張 -->
-<picture>
-    <source
-        media="(min-width: 992px)"
-        srcset="img/cv_02.webp">
-
-    <img
-        src="img/cv_m02.webp"
-        alt="履歷作品第 2 張"
-        loading="lazy"
-        decoding="async">
-</picture>
-
-<!-- 第 3 張 -->
-<picture>
-    <source
-        media="(min-width: 992px)"
-        srcset="img/cv_03.webp">
-
-    <img
-        src="img/cv_m03.webp"
-        alt="履歷作品第 3 張"
-        loading="lazy"
-        decoding="async">
-</picture>
-
-<!-- 第 4 張 -->
-<picture>
-    <source
-        media="(min-width: 992px)"
-        srcset="img/cv_04.webp">
-
-    <img
-        src="img/cv_m04.webp"
-        alt="履歷作品第 4 張"
-        loading="lazy"
-        decoding="async">
-</picture>
-
+	<div class="view_lg">
+	<img width="100%" src="img/cv_01.webp">
+	<img width="100%"  src="img/cv_02.webp">
+	<img  width="100%" src="img/cv_03.webp">
+	<img  width="100%" src="img/cv_04.webp">
+		</div>
+	
+	<div class="view_sm">
+	<img width="100%" src="img/cv_m01.webp">
+	<img width="100%"  src="img/cv_m02.webp">
+	<img  width="100%" src="img/cv_m03.webp">
+	<img  width="100%" src="img/cv_m04.webp">
+		</div>
 </body>
+	
 </html>
