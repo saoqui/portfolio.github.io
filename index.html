@@ -77,40 +77,41 @@
 
 <section class="banner_section" id="banner_top">
   <div class="banner_pic">
-<!-- 手機版 Banner 影片 -->
+<!-- 手機版 Banner -->
 <video
-  class="zoom-img view_sm"
-  width="100%"
-  display="block"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
-  data-desktop="assets/img/cv.jpg"
-  data-mobile="assets/img/cv_m.jpg"
-  onclick="openImage(this)"
-  aria-label="點擊查看履歷作品">
-  
-  <source src="assets/img/banner_sm.mp4" type="video/mp4">
+    class="zoom-img view_sm"
+    width="100%"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+
+ data-desktop="works/cv.html"
+data-mobile="works/cv.html"
+
+    onclick="openWork(this)"
+    aria-label="點擊查看履歷作品">
+
+    <source src="assets/img/banner_sm.mp4" type="video/mp4">
 </video>
 
-<!-- 電腦版 Banner 影片 -->
+<!-- 電腦版 Banner -->
 <video
-  class="zoom-img view_lg"
-  width="100%"
-  display="block"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
-  data-desktop="assets/img/cv.jpg"
-  data-mobile="assets/img/cv_m.jpg"
-  onclick="openImage(this)"
-  aria-label="點擊查看履歷作品">
-  
-  <source src="assets/img/banner_lg.mp4" type="video/mp4">
+    class="zoom-img view_lg"
+    width="100%"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+data-desktop="works/cv.html"
+data-mobile="works/cv.html"
+
+    onclick="openWork(this)"
+    aria-label="點擊查看履歷作品">
+
+    <source src="assets/img/banner_lg.mp4" type="video/mp4">
 </video>
 </div>
 
@@ -141,9 +142,9 @@
         <img
             src="assets/img/map_feature1.svg"
             class="zoom-img"
-            data-desktop="assets/img/syb.webp"
-            data-mobile="assets/img/syb_m.webp"
-            onclick="openImage(this)"
+            data-desktop="works/syb.html"
+            data-mobile="works/syb_m.html"
+            onclick="openWork(this)"
             data-aos="fade-up"
             data-aos-delay="0">
     </div>
@@ -152,9 +153,9 @@
         <img
             src="assets/img/map_feature2.svg"
             class="zoom-img"
-            data-desktop="assets/img/tk3c.webp"
-            data-mobile="assets/img/tk3c_m.webp"
-            onclick="openImage(this)"
+            data-desktop="works/tk3c.html"
+            data-mobile="works/tk3c_m.html"
+            onclick="openWork(this)"
             data-aos="fade-up"
             data-aos-delay="100">
     </div>
@@ -163,9 +164,9 @@
         <img
             src="assets/img/map_feature3.svg"
             class="zoom-img"
-            data-desktop="assets/img/axio.webp"
-            data-mobile="assets/img/axio_m.webp"
-            onclick="openImage(this)"
+            data-desktop="works/axio.html"
+            data-mobile="works/axio_m.html"
+            onclick="openWork(this)"
             data-aos="fade-up"
             data-aos-delay="200">
     </div>
@@ -833,45 +834,33 @@ $(document).ready(function(){
 
 
 });
-	function openImage(el){
+	function openWork(el){
 
     const modal = document.getElementById("imageModal");
-    const image = document.getElementById("modalImage");
+    const frame = document.getElementById("workFrame");
 
-    const src = window.matchMedia("(max-width:768px)").matches
+    const page = window.matchMedia("(max-width: 768px)").matches
         ? el.dataset.mobile
         : el.dataset.desktop;
 
-    image.src = src;
+    frame.src = page;
 
     modal.style.display = "flex";
-
     modal.scrollTop = 0;
 
     document.body.style.overflow = "hidden";
 }
 
-function closeImage(){
+function closeWork(){
 
     const modal = document.getElementById("imageModal");
+    const frame = document.getElementById("workFrame");
 
     modal.style.display = "none";
-    modal.scrollTop = 0;
+    frame.src = "";
 
     document.body.style.overflow = "";
-
 }
-	window.addEventListener("load", function() {
-    const preloader = document.getElementById("preloader");
-    
-    // 設定透明度為 0 開始淡出
-    preloader.style.opacity = "0";
-    
-    // 淡出動畫結束後，將遮罩從 DOM 中移除
-    setTimeout(function() {
-        preloader.style.display = "none";
-    }, 500); 
-});
 	
 	
 </script>
@@ -893,8 +882,23 @@ $(document).ready(function(){
   })
 });
 </script> -->
-<div id="imageModal" class="image-modal" onclick="closeImage()">
-    <img id="modalImage" alt="">
+<div id="imageModal" class="image-modal">
+
+    <button
+        class="modal-close"
+        type="button"
+        onclick="closeWork()"
+        aria-label="關閉作品">
+        ×
+    </button>
+
+    <div class="work-modal-content">
+        <iframe
+            id="workFrame"
+            title="作品內容">
+        </iframe>
+    </div>
+
 </div>
 	
 
